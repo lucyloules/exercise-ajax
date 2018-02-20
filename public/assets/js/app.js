@@ -1,13 +1,12 @@
 $(document).ready(() => {
-  showFirstPage();
   $('#btn-first').click(showFirstPage);
   $('#btn-second').click(showSecondPage);
   $('#btn-third').click(showThirdPage);
   $('#btn-fourth').click(showFourthPage);
 });
-// Primer llamado ajax
+
+//  Primer llamado ajax
 function showFirstPage() {
-  $('#contenido').empty();
   $.ajax({
     url: window.location.href + 'assets/js/demo.json',
     type: 'GET',
@@ -16,18 +15,20 @@ function showFirstPage() {
     .done(function(response) {
       showFirstInfo(response);
     })
-    .fail(function(err) {
-      console.log('error al cargar primera página');
+    .fail(function(error) {
+      console.log('error al cargar la primera página');
     });
 }
+
 // Primera página
 function showFirstInfo(info) {
+  $('#contenido').empty();
   let data = info.contenido[0];
   $('#contenido').append(`<div><h4>${data.title}</h4><p>${data.text}</p><img src="${data.img}" class="nyan"/><p>${data.section}</p></div>`);
 }
-//  segundo llamado ajax
+
+// Segundo llamado ajax
 function showSecondPage() {
-  $('#contenido').empty();
   $.ajax({
     url: window.location.href + 'assets/js/demo.json',
     type: 'GET',
@@ -36,19 +37,20 @@ function showSecondPage() {
     .done(function(response) {
       showSecondInfo(response);
     })
-    .fail(function(err) {
-      console.log('error al cargar segunda página');
+    .fail(function(error) {
+      console.log('error al cargar la segunda página');
     });
 }
+
 // Segunda página
 function showSecondInfo(info) {
+  $('#contenido').empty();
   let data = info.contenido[1];
-  $('#contenido').append(`<div><h4>${data.title}</h4><img src="${data.img}" class="nyan"/><h3>${data.second}</h3><p>${data.section}</p></div>`);
+  $('#contenido').append(`<div><h4>${data.title}</h4><p>${data.second}</p><img src="${data.img}" class="nyan"/><p>${data.section}</p></div>`);
 }
 
-//  tercer llamado ajax
+// Tercer llamado ajax
 function showThirdPage() {
-  $('#contenido').empty();
   $.ajax({
     url: window.location.href + 'assets/js/demo.json',
     type: 'GET',
@@ -57,19 +59,20 @@ function showThirdPage() {
     .done(function(response) {
       showThirdInfo(response);
     })
-    .fail(function(err) {
-      console.log('error al cargar tercera página');
+    .fail(function(error) {
+      console.log('oe, avispate');
     });
 }
+
 // Tercera página
 function showThirdInfo(info) {
+  $('#contenido').empty();
   let data = info.contenido[2];
   $('#contenido').append(`<div><h4>${data.title}</h4><p>${data.text}</p><img src="${data.img}" class="nyan"/><p>${data.section}</p></div>`);
 }
 
-//  cuarto llamado ajax
+// Cuarto llamado ajax
 function showFourthPage() {
-  $('#contenido').empty();
   $.ajax({
     url: window.location.href + 'assets/js/demo.json',
     type: 'GET',
@@ -78,12 +81,14 @@ function showFourthPage() {
     .done(function(response) {
       showFourthInfo(response);
     })
-    .fail(function(err) {
-      console.log('error al cargar cuarta página');
+    .fail(function(error) {
+      console.log('oe, pero oe');
     });
 }
-// Cuarta página
+
+// Cuarta Página
 function showFourthInfo(info) {
+  $('#contenido').empty();
   let data = info.contenido[3];
   $('#contenido').append(`<div><h4>${data.title}</h4><p>${data.text}</p><img src="${data.img}" class="nyan"/><p>${data.section}</p></div>`);
 }
